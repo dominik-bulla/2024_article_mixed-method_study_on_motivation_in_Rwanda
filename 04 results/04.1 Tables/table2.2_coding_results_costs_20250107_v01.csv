@@ -1,7 +1,7 @@
-"","Category","Sub_category1","Segments (M)","Students (M)","Segments (D)","Students (D)"
-"1","costs","",2.04,12.5,23.73,60.24
-"2","costs","effort",2.04,12.5,8.04,22.89
-"3","costs","emotional",0,0,13.73,45.78
-"4","costs","opportunity",0,0,0.98,6.02
-"5","costs","outside",0,0,0.98,2.41
-"6","total","",636,88,510,83
+"Category","Sub_category1","Segments (M)","Students (M)","Segments (D)","Students (D)"
+"Costs","",2.04,12.5,23.73,60.24
+"Costs","effort",2.04,12.5,8.04,22.89
+"Costs","emotional",0,0,13.73,45.78
+"Costs","opportunity",0,0,0.98,6.02
+"Costs","outside",0,0,0.98,2.41
+"Total","",636,88,510,83
