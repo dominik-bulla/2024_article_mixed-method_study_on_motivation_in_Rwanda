@@ -1,6 +1,8 @@
-"Category","Segments (M)","Students (M)","Segments (D)","Students (D)"
-"Value",51.26,88.64,7.25,24.1
-"Costs",2.04,12.5,23.73,60.24
-"Consequence",8.81,43.18,8.63,37.35
-"Other factors",6.29,28.41,26.47,57.83
-"Total",636,88,510,83
+"Categories","Statements (M; in %)","Students (M; in %)","Statements (A; in %)","Students (A; in %)"
+"Expectancies",19.04,55.68,36.95,89.16
+"Value",54.34,88.64,8.08,22.89
+"Cost",2.4,12.5,24.94,60.24
+"Goals",14.6,35.23,0,0
+"Other factors",7.39,28.41,30.72,57.83
+"Consequence",10.17,43.18,9.93,37.35
+"n",541,88,433,83

@@ -553,7 +553,9 @@ ira3 <- motivation %>%
   mutate_all(funs(ifelse(. == categories[10, 1], categories[10, 2], .))) %>%
   mutate_all(funs(ifelse(. == categories[11, 1], categories[11, 2], .))) %>%
   mutate_all(funs(as.numeric(.))) %>% 
-  filter(rowSums(is.na(.)) < ncol(.))
+  select(where(~ !(all(is.na(.))))) %>%
+  filter_all(any_vars(!is.na(.))) %>%
+  mutate_all(funs(ifelse(is.na(.), 100, .)))
 
 ira3[, 1:3] <- t(apply(ira3[, 1:3], 1, FUN=function(x) sort(x, decreasing=FALSE)))
 ira3[, 4:6] <- t(apply(ira3[, 4:6], 1, FUN=function(x) sort(x, decreasing=FALSE)))
@@ -589,9 +591,22 @@ categories <- categories %>%
   filter(!is.na(cat)) %>%
   mutate(NO = 1:n())
 
+motivation$coding_round_4.2_final_coding_separate
+
+table(ira4.1$coding_round_2_final_coding,
+        ira4.1$coding_round_3_final_coding_separate)
+
 ira4.1 <- motivation %>%
-  select(coding_round_4.1_coder_1_answer_1, coding_round_4.1_coder_1_answer_2, coding_round_4.1_coder_1_answer_3,
-         coding_round_4.1_coder_2_answer_1, coding_round_4.1_coder_2_answer_2, coding_round_4.1_coder_2_answer_3) %>%
+  select(coding_round_2_final_coding, 
+         coding_round_3_final_coding_separate, 
+         coding_round_4.1_coder_1_answer_1, coding_round_4.1_coder_1_answer_2, coding_round_4.1_coder_1_answer_3,
+         coding_round_4.1_coder_2_answer_1, coding_round_4.1_coder_2_answer_2, coding_round_4.1_coder_2_answer_3,
+         coding_round_4.2_final_coding_separate) 
+
+write.csv(ira4.1, "aaa.csv")
+
+
+%>%
   mutate(across(everything(), ~ ifelse(. == categories[ 1, 1], categories[ 1, 2], .))) %>%
   mutate(across(everything(), ~ ifelse(. == categories[ 2, 1], categories[ 2, 2], .))) %>%
   mutate(across(everything(), ~ ifelse(. == categories[ 3, 1], categories[ 3, 2], .))) %>%
@@ -600,7 +615,10 @@ ira4.1 <- motivation %>%
   mutate(across(everything(), ~ ifelse(. == categories[ 6, 1], categories[ 6, 2], .))) %>%
   mutate(across(everything(), ~ ifelse(. == categories[ 7, 1], categories[ 7, 2], .))) %>%
   mutate(across(everything(), ~ ifelse(. == categories[ 8, 1], categories[ 8, 2], .))) %>%
-  mutate(across(everything(), as.numeric)) %>%
+  mutate(across(everything(), as.numeric)) 
+
+
+%>%
   filter(rowSums(is.na(.)) < ncol(.))
 
 ira4.1 <- ira4.1 %>%
